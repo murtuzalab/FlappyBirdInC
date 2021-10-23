@@ -56,13 +56,13 @@ void prepare_canvas(int bird_row,int gap_loc){
 	for(row=0;row<15;row++){
 		for(col=0;col<30;col++){
 			if(wall_count%8==0&&col==29){
-        if(row>gap_loc-3&&row<gap_loc+3&&gap_loc-3>0&&gap_loc+3<15){
-          arr[row][col]='=';
-          arr[row][col-1]='=';
-        }else{
-          arr[row][col]='X';
-          arr[row][col-1]='X';
-        }
+				if(row>gap_loc-3&&row<gap_loc+3&&gap_loc-3>0&&gap_loc+3<15){
+					arr[row][col]='=';
+					arr[row][col-1]='=';
+				}else{
+					arr[row][col]='X';
+					arr[row][col-1]='X';
+				}
 			}
 		}
 	}
@@ -81,17 +81,17 @@ void refresh(){
 						wall_count++;
 					}
 				}else if(arr[row][col]=='B'){
-          if(arr[row][col+1]!='X'){
-            arr[row][col]='=';
-            arr[row][col-1]='=';
-          }
-          else if(arr[row][col+1]=='X'||arr[row][col-1]=='X'||arr[row][col]=='X'||arr[row][col-2]=='X'){
-            game_over();
-            break;
-          }
-          arr[row][col]=arr[row][col+1];
+					if(arr[row][col+1]!='X'){
+						arr[row][col]='=';
+						arr[row][col-1]='=';
+					}
+					else if(arr[row][col+1]=='X'||arr[row][col-1]=='X'||arr[row][col]=='X'||arr[row][col-2]=='X'){
+						game_over();
+						break;
+					}
+					arr[row][col]=arr[row][col+1];
 				}else{
-						arr[row][col]=arr[row][col+1];
+					arr[row][col]=arr[row][col+1];
 				}
 			}
 		}
@@ -126,7 +126,7 @@ void reset(){
 	clrscr();
 	for(row=0;row<15;row++){
 		for(col=0;col<30;col++){
-				arr[row][col]='=';
+			arr[row][col]='=';
 		}
 	}
 }
